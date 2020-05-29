@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="imagetoolbar" content="no" />
+<title>Journey</title>
+</head>
+<style>
+
+table{
+    border-width: 0px;
+	border-spacing:0px;
+	border-style:none;
+	border-collapse:collapse;
+}
+td{
+border-width:0px;
+padding:1px;
+border-color:#9999FF;
+border-style:inset;
+}
+.style1 {
+	font-size: 12px;
+	font-family: "Courier New", Courier, monospace;
+}
+.style2 {
+font-size: 16px;
+font-weight:bold;
+}
+.style3 {font-size: 13px;}
+a:visited {
+	text-decoration: none;
+	color: #FF3366;
+}
+a:hover {
+	text-decoration: underline;
+	color: #0066FF;
+}
+a:active {
+	text-decoration: none;
+	color: #FF3366;
+}
+a {
+	text-decoration: none;
+	color:#666666;
+}
+.style6 {color: #0066FF; }
+.style7 {font-size: 12px}
+.flag{
+	width: 75px;
+	height:50px;
+	border:0px;
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	opacity: 0.5;
+}
+.flag.alpha{
+	filter:alpha(opacity=100);
+	-moz-opacity:1.0;
+	opacity: 1.0;
+}
+</style>
+
+<body>
+<div align="center">
+  <table>
+    <tr>
+      <td width="80">
+		<div align="center" class="style2" id="trip_name">Journey</div>
+	  </td>
+      <td width="80">
+		<div align="center">
+			<a href="en_log_china.html" target="diaryF">
+				<img src="../file/china_on.jpg" class="flag" onclick="flag_click(this, 'china')" onmouseover="flag_on(this,'china')" onmouseout="flag_off(this,'china')"/>
+			</a>
+		</div>
+	  </td>
+      <td width="80">
+	    <div align="center">
+			<a href="en_log_kazakhstan.html" target="diaryF">
+				<img src="../file/kazakhstan_on.jpg" class="flag" onclick="flag_click(this, 'kazakhstan')" onmouseover="flag_on(this,'kazakhstan')" onmouseout="flag_off(this,'kazakhstan')" />
+			</a>
+		</div>
+	  </td>
+      <td width="80">
+	    <div align="center">
+			<a href="en_log_russia.html" target="diaryF">
+				<img src="../file/russia-federation_on.jpg" class="flag" onclick="flag_click(this, 'russia-federation')" onmouseover="flag_on(this,'russia-federation')" onmouseout="flag_off(this,'russia-federation')" />
+			</a>
+		</div>
+	  </td>
+      <td width="80">
+		<div align="center">
+			<a href="en_log_belarus.html" target="diaryF">
+				<img src="../file/belarus_on.jpg" class="flag" onclick="flag_click(this, 'belarus')" onmouseover="flag_on(this,'belarus')" onmouseout="flag_off(this,'belarus')" />
+			</a>
+		</div>
+	  </td>
+      <td width="80">
+		<div align="center">
+			<a href="en_log_poland.html" target="diaryF">
+				<img src="../file/poland_on.jpg" class="flag" onclick="flag_click(this, 'poland')" onmouseover="flag_on(this,'poland')" onmouseout="flag_off(this,'poland')" />
+			</a>
+		</div>
+	  </td>
+	  <td width="80">
+		<div align="center">
+			<a href="en_log_germany.html" target="diaryF">
+				<img src="../file/germany_on.jpg" class="flag" onclick="flag_click(this, 'germany')" onmouseover="flag_on(this,'germany')" onmouseout="flag_off(this,'germany')" />
+			</a>
+		</div>
+	  </td>
+      <td width="80">
+		<div align="center">
+			<a href="en_log_france.html" target="diaryF">
+				<img src="../file/french_on.jpg" class="flag" onclick="flag_click(this, 'french')" onmouseover="flag_on(this,'french')" onmouseout="flag_off(this,'french')" />
+			</a>
+		</div>
+	  </td>
+      <td width="80">
+		<div align="center">
+			<a href="en_log_taiwan.html" target="diaryF">
+				<img src="../file/taiwan_on.jpg" class="flag" onclick="flag_click(this, 'taiwan')" onmouseover="flag_on(this,'taiwan')" onmouseout="flag_off(this,'taiwan')" />
+			</a>
+		</div>
+	  </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+<script>
+	var flags = document.getElementsByTagName('img');	
+	var flagsArray = [];
+	for(var flag in flags){
+		if(typeof flags[flag] == 'number') continue;
+		if(flags[flag].className == 'flag')
+			flagsArray.push(flags[flag]);
+	}
+	var index = 0;	
+	var prevflag;
+	var timer = window.setInterval(function(){
+		if(prevflag)
+			prevflag.className = 'flag';
+		
+		flagsArray[index].className = 'flag alpha';
+		prevflag = flagsArray[index];
+		index++;
+		
+		if(index >= flagsArray.length) index = 0;
+	}, 1000);
+	
+	var tripName = document.getElementById("trip_name");
+
+	var focueFlag;
+	var focueFlagObj;
+	function flag_click(obj, name){
+		if(focueFlagObj){
+			focueFlagObj.className = 'flag';	
+		}
+		if(!name){
+			focueFlag = '';
+			focueFlagObj = null;
+			tripName.innerHTML = getDisplayName(focueFlag);
+			return;
+		}
+		focueFlagObj = obj;
+		focueFlag = name;
+		focueFlagObj.className = 'flag alpha';
+	}
+
+	function flag_on(obj, name) {
+		if(timer){
+			window.clearInterval(timer);
+			timer = null;
+			if(prevflag)
+				prevflag.className = 'flag';
+		}
+		
+		obj.className = 'flag alpha';
+		
+		tripName.innerHTML = getDisplayName(name);
+		
+		if(!obj.title){
+			obj.title = tripName.innerHTML;
+		}
+	}
+
+	function flag_off(obj, name) {
+		if(obj != focueFlagObj)
+			obj.className = 'flag';
+		tripName.innerHTML = getDisplayName(focueFlag);
+	}
+
+	function getDisplayName(name){
+		switch(name){
+			case 'china':
+				return 'China';
+			
+			case 'kazakhstan':
+				return 'Kazakhstan';
+			
+			case 'russia-federation':
+				return 'Russia';
+			
+			case 'belarus':
+				return 'Belarus';
+			
+			case 'poland':
+				return 'Poland';
+			
+			case 'germany':
+				return 'Germany';
+			
+			case 'french':
+				return 'France';
+			
+			case 'taiwan':
+				return 'Taiwan';
+			
+			default:
+				return 'Journey';
+		}
+	}
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<title>選單</title>
+		<style type="text/css">
+		<!--
+		.style1 {font-size: small}
+		.style2 {
+			font-size: 16px;
+			font-family: Geneva, Arial, Helvetica, sans-serif;
+			font-weight:bold;
+		}
+		a:link {
+			color: #0000FF;
+			text-decoration: none;
+		}
+		a:visited {
+			text-decoration: none;
+			color: #0000FF;
+		}
+		a:hover {
+			text-decoration: underline;
+			color: #0000FF;
+		}
+		a:active {
+			text-decoration: none;
+			color: #FF0000;
+		}
+		.mailme{
+			position:absolute;
+			bottom:20px;
+			left:5px;
+		}
+		.counter{
+			position:absolute;
+			bottom:2px;
+			left:5px;
+		}
+		-->
+		</style>
+	</head>
+	<body  topmargin="10" leftmargin="5">
+		<table border="0" align="left">
+		  <tr>
+			<td><div align="center"><a href="log/index.html" target="infoF"><img src="file/log.jpg" title="單車旅行日誌" name="log" width="55" height="55" border="0" id='log' onmouseover="large('log')" /></a></div></td>
+		  </tr>
+		  <tr>	
+			<td><div align="center"><a href="equipment.html"  target="infoF"><img src="file/equipment.jpg" title="旅行攜帶的裝備" width="55" height="55" border="0" id='equipment' onmouseover="large('equipment')" /></a></div></td>
+		  </tr>
+		  <tr>		
+			<td><div align="center"><a href="cost.html" target="infoF"><img src="file/cost.jpg" title="旅行中的開銷&amp;出發前募集的款項" name="cost" width="55" height="55" border="0" id='cost' onmouseover="large('cost')" /></a></div></td>
+		  </tr>
+		  <tr>		
+			<td><div align="center"><a href="prepare.html" target="infoF"><img src="file/prepare.jpg" title="三月一日開始的行前準備過程" width="55" height="55" border="0" id='prepare' onmouseover="large('prepare')" /></a></div></td>
+		  </tr>
+		  <tr>		
+			<td><div align="center"><a href="thanks.html" target="infoF"><img src="file/thanks.jpg" title="給予無比協助的廠商" width="55" height="55" border="0" id='thanks' onmouseover="large('thanks')" /></a></div></td>
+		  </tr>
+		  <tr>		
+			<td><div align="center"><a href="about_btp.html" target="infoF"><img src="file/about.jpg" title="BTP Bike To Protect 活動介紹" width="55" height="55" border="0" id='about' onmouseover="large('about')" /></a></div></td>
+		  </tr>
+		  <tr>		
+			<td><div align="center"><a href="http://blog.deray.org" target="_top"><img src="file/deray.jpg" title="Deray嘎嘎嘎網誌首頁" width="55" height="55" border="0" id='deray' onmouseover="large('deray')" /></a></div></td>
+		  </tr>
+		</table>
+		
+		<div class="mailme">
+			<a href="mailto:deray@deray.org?subject=Hi~Deray" ><img src="file/mailme.png" title="寄信給我" name="mailme" width="55" height="55" border="0" /></a>
+		</div>
+		<!--div class="counter">
+			<img border="0" src="http://xyz.freelogs.com/counter/index.php?u=deray&s=amini" width="55px" height="12px" align="middle" >        								   
+		</div-->
+	</body>
+
+	<script>
+		function large(name) {
+			return;
+			reset_all();
+			e = document.getElementById(name);
+			e.src='file/'+name+'2.jpg';
+			e.width='65';
+			e.height='65';
+		}
+	function reset_all(){
+		var e_list = new Array("log","equipment","prepare","cost","thanks","about","forum","letsbike","deray");
+
+		for (i=0; i<e_list.length; i++) {
+		  var e = document.getElementById(e_list[i]);
+		  if(!e) continue;
+		  
+		  if(e.src!='file/'+e_list[i]+'.jpg')
+		  {
+		  e.src='file/'+e_list[i]+'.jpg';
+		  e.width='55';
+		  e.height='55';
+		  }
+		}
+	}
+	</script>
+</html>
